@@ -4,11 +4,9 @@ class ProcessorListener {
 
     listen(queue) {
         queue.on(ProcessorQueue.EVENT_ADDED, (event) => {
-            setTimeout(() => {
-                this.process(event);
-                queue.remove(event);
-            }, 5000);
-        })
+            this.process(event);
+            queue.remove(event);
+        });
     }
 
     process(event) {
